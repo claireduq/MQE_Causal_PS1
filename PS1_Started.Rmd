@@ -21,12 +21,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 In additions, to the instructions given on the problem set, you may find the "GitHub instructions" course document helpful.
 
-# Preliminary: Set up your GitHub and Git. 
+# Preliminary: Set up your GitHub, RStudio Cloud and Git. 
 
 
 Git and GitHub are often used in conjunction but are really two distinct things. Git is basically a version control software that is based on your local computer. GitHub is a webservice where you have an account that allows you to do version control via the website, which becomes particularly interesting when you are working on collaborative projects and want to avoid the issue of how to synchronize and manage changes to a document when multiple people are working on the same document simultaneously. In theory you could use only one or the other but many people use them in conjunction. 
 
-To get a big picture overview of exactly what you can do with Git and Git hub, I would recommend taking the time to watch the Git and GitHub for Poets series of youtube videos https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV.
+Since in this class we are primarily working on RStudio Cloud (rather than on your local machine), I will walk you through the RStudio Cloud to GitHub integration. I will also provide information on using Git so you know how to sync files between github and your local machine as well, if you choose to do so. Conceptually the relationship between Github and RStudio Cloud is very much the same as how you would use GitHub with a local folder on your computer, though the exact steps involved in setup are a bit different.
+
+To get a big picture overview of exactly what you can do with Git and Git hub, I would recommend taking the time to watch the Git and GitHub for Poets series of youtube videos https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV.  
+
+## Getting Started with RStudio Cloud
+
+I am working on the assumption that you have already been working in RStudio Cloud and do not need instruction on this.
+
 
 ## Getting Started with GitHub
 
@@ -37,7 +44,7 @@ This is quite straightforward:
   3. Choose a username,  an email that GitHub will use to contact you and set you password
   4. Respond to the invitation email to activate your account.
 
-## Getting Started with Git
+## Getting Started with Git (Optional)
 
 Git is often used in conjunction with GitHub as a way to work on GitHub projects locally offline and then reintegrate your work back into a GitHub project. While there is a visual interface you can use to run Git, most programmers seem to prefer to run it directly by typing in Git commands through a terminal prompt.
 
@@ -54,19 +61,22 @@ You can use the terminal window to navigate through the folders in your computer
 
 # Individual Homework Tasks: 
 
-The following list of tasks are designed to get you started with Git and GitHub and get you set up with the course resources. Everyone in the group should complete these tasks individully on their own computer.
+The following list of tasks are designed to get you started with GitHub and RStudio Cloud and get you set up with the course resources. Everyone in the group should complete these tasks individually.
 
-## Clone the course repository to your computer
+## Clone the course repository to your RStudio Cloud
 
-All of the lecture materials for this course are available in a repository on GitHub. Navigate to https://github.com/claireduq/MQE_Causal_Inf to view the course repository. This is where you will find the most up-to-date content for the course. 
+All of the lecture materials for this course are available in a repository on GitHub. Navigate to https://github.com/claireduq/MQE_Causal to view the course repository. This is where you will find the most up-to-date content for the course. 
 
-So that you have full access to this content you will:
+So that you have full access to this content you will. Step by step instrections are detailed below to help you do the following:
 
 1. Fork the course repository to your GitHub account
 
-2. Clone this forked repository to your computer
+2. Clone this forked repository to your RStudio Cloud account
 
-3. Set up the cloned folder on your computer to syncronize with my course repo
+3. Upload the course data to RStudio Cloud
+
+4. Knit an Rmarkdown file
+
 
 ### Fork the course repository to your GitHub account
 
@@ -84,51 +94,53 @@ If you would like to rename the repo:
   1. Open the repo
   2. Go to the settings tab
   3. Type in a new name and click Rename.
-
-### Clone this forked repository to your computer
-
-If you want to have access to the course files when you are offline, you will need to clone (ie copy) the files in this repo to your local machine:
-
-  1. Make an empty folder named, for example, `MQE_Causal_Inf` where you will put the files you are going to pull off GitHub (preferably in Dropbox or someplace where it will be backed up).
-  2. Open your command terminal (or Git Bash on Windows).
-  3. Navigate via your command terminal to the new folder by typing 
-
-      `$ cd /c/Users/ *******/Dropbox/MQE_Causal_Inf`
-
-      followed by enter.
-
-      Note: the directory path will be different for you! To easily get your directory path, you can simply drag and drop the folder into your terminal window.
-
-  4. Check that you are in the right folder by typing 
-
-      `$ pwd`
-
-      and you should see the directory path to the folder you want to be using.
-
-  5.  Suppose your GitHub user id is `myuserid` and your repo you would like to clone is named `MQE_Causal_Inf`. In your github repo, click the green code button and copy the link it gives you. Most likely it will look like `https://github.com/myuserid/MQE_Causal_Inf.git` 
-   (Notice, the url is just the web address with .git added to the end. )
-
   
-  6. In the terminal type `git clone` and copy the url it gave you
-
-      `$ git clone https://github.com/myuserid/MQE_Causal_Inf.git `
-
-      followed by enter.
-
-You should now find that the folder you created has a copy of all the files that are in the course repo. 
-
-
-### Set up syncronizing with the course repository
-
-
-To make sure the course folder on your computer reflect the most recent changes made in an upstream repo (my course repo that you originally forked from) you need  to configure the folder on your computer so that you can easily `fetch` any changes in the upstream repo: 
-
-1. Go to the terminal window and navigate to the git folder by typing
   
-     `$ cd /c/Users/ *******/filepath`
+### Clone this forked repository to your RStudio Cloud account
 
-2. List the current configured remote repository for your folder:
-     `$ git remote -v `
+So you can make modifications to the course code, experiment with the simulations we will be running, try different specification etc. you need to create your own copy of the course materials in your RStudio Cloud account. To do this:
+
+  1. Click on the New project button and select New projet from Github in the dropdown options. 
+  2. Copy the URL of the MQE_Causal repository in the space provided
+  
+RStudio Cloud should now open a new project populated with the course files
+  
+### Upload the course data to your RStudio Cloud account
+
+The GitHub platform is designed to keep track of changes to code/projects. It is not designed to host large amounts of data. If you try and upload a large datafile to github it will throw an error. Thus the datafiles that are used in the course materials are not hosted on github and will need to be uploaded to your project folder 
+separately. 
+
+ 1. Go to the course Canvas page.
+ 
+ 2. Copy the files called `cps_clean.csv` and `IA_MI_merge040504.dta` to your local machine. 
+ 
+ 3. In RStudio Cloud click on the `upload` button in the file tab of the SE panel of the work space. 
+ 
+ 4. Upload the two data files directly to your RStudio Cloud project (don't put them in a folder). 
+ 
+### Run an Rmarkdown file
+
+Course notes and slides are written in Rmarkdown (.Rmd). Your homewokr assignments will also be produced using Rmarkdown. Rmarkdown is a type of R file that allows the combination of R code, code output and text. For the moment, we just want to check that you have the setup needed to run the course files. 
+ 
+ 5. Some of the datasets used in lecture are large and will require a fair bit of computing power if you want them to run in a reasonable amount of time. To increase your RAM on RStudio Cloud:
+ 
+      a. click on the settings button at the top of your browser window
+      b. select resources
+      c. increase the RAM to 16 GB
+      d. Click apply changes (which will re-initialize your session)
+      
+6. Make sure your browser allows pop-up windows from rstudio.cloud
+      
+7. Open any of the .Rmd files and click the `Knit` button in the NW panel of your workspace. Make sure to install any packages when prompted. A pop-up window should appear with the compiled lecture notes or slides. (Note: if the .Rmd file uses the large data in IA_MI_merge040504.dta it will take a few minutes to compile. )
+
+### Set up syncronizing with claireduq/MQE_Causal
+
+To make sure the course folder on your RStudio Cloud reflects the most recent changes made in an upstream repo (my course repo that you originally forked from) you need  to configure the folder on your computer so that you can easily `fetch` any changes in the upstream repo: 
+
+1. Open the terminal tab in the SW panel of your RStudio Cloud project
+
+2. List the current configured remote repository for your project. Type `git remote -v` after  `/cloud/project$`: 
+     `/cloud/project$ git remote -v`
     
       `> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)`
 
@@ -138,12 +150,12 @@ To make sure the course folder on your computer reflect the most recent changes 
 
 3. We want to change this. Specify a new remote upstream repo (my course repo) that will be synced with your fork
 
-      `$ git remote add upstream https://github.com/claireduq/MQE_Causal_Inf.git`
+      `/cloud/project$ git remote add upstream https://github.com/claireduq/MQE_Causal.git`
       
 
 4. Verify the new upstream repository you've specified for your fork.
 
-    `$ git remote -v `
+    `/cloud/project$ git remote -v `
     
       `> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)`
 
@@ -155,7 +167,7 @@ To make sure the course folder on your computer reflect the most recent changes 
       
 5. You can now `fetch` changes to the course repo and have them reflected on your local machine with the command
 
-    `$ git fetch upstream `
+    `/cloud/project$ git fetch upstream `
     
 6. Check out your fork's local master branch.
 
@@ -170,44 +182,78 @@ To make sure the course folder on your computer reflect the most recent changes 
 
 You can repeat steps 5-7 anytime you want to make sure your local folder is up-to-date with my repository. 
 
-## Propose an edit to a course document
+### Optional: Clone and sync this forked repository to your local computer
 
-There are two ways to do this. You could do this directly as a **pull request** on the GitHub platform, or you could write the edit in the folder on your local machine, push it to your forked repository, and then submit it as a **pull request** to my repository. Though more complicated, we will practice the second method because ultimately you will be coding on your local machine and then merging your changes into your group project repository so we want to practice these steps here.
+If you want to have access to the course files when you are offline, you will need to clone (ie copy) the files in this repo to your local machine:
 
-In the course reopsitory there is a document called `GitHub_names.txt`. I would like you to add your first name and username to this document by:
+  1. Make an empty folder named, for example, `MQE_Causal` where you will put the files you are going to pull off GitHub (preferably in Dropbox or someplace where it will be backed up).
+  2. Open your command terminal (or Git Bash on Windows).
+  3. Navigate via your command terminal to the new folder by typing 
 
-1. Making the edits on your local computer
+      `$ cd /c/Users/ *******/Dropbox/MQE_Causal`
 
-2. Pushing your local changes to your GitHub repository
+      followed by enter.
 
-3. Submitting a pull request to my repository asking me to accept your edits.
+      Note: the directory path will be different for you! To easily get your directory path, you can simply drag and drop the folder into your terminal window.
 
-### Making the edits on your local computer
+  4. Check that you are in the right folder by typing 
 
-Open the `GitHub_names.txt` file in the folder you cloned onto your computer. Add your First name and GitHub user name to the list and save the document. 
+      `$ pwd`
 
-### Pushing your local changes to your GitHub repository
+      and you should see the directory path to the folder you want to be using.
 
-We now want to have these edits reflected in your GitHub repository. 
+  5.  Suppose your GitHub user id is `myuserid` and your repo you would like to clone is named `MQE_Causal_Inf`. In your github repo, click the green code button and copy the link it gives you. Most likely it will look like `https://github.com/myuserid/MQE_Causal.git` 
+   (Notice, the url is just the web address with .git added to the end. )
 
-  1. Go to the terminal window and navigate to your cloned directory by typing
+  
+  6. In the terminal type `git clone` and copy the url it gave you
+
+      `$ git clone https://github.com/myuserid/MQE_Causal.git `
+
+      followed by enter.
+
+You should now find that the folder you created has a copy of all the files that are in the course repo. 
+
+As with RStudio Cloud, you can use Git to set up synchronizing between an upstream repo and your local folder
+
+1. Go to the terminal (or Gitbash) window and navigate to the git folder by typing
   
      `$ cd /c/Users/ *******/filepath`
 
-*********************
-  2.  **WARNING: **  At this point you want to check if GitHub knows who you are. Type 
+2. The remaining commands are the same as above.
 
-      `$ git config --list`
+## Propose an edit to a course document
+
+There are two ways to do this. You could do this directly as a **pull request** on the GitHub platform, or you could write the edit in RStudio Cloud, push it to your forked repository, and then submit it as a **pull request** to my repository. Though more complicated, we will practice the second method because ultimately you will be coding in RStudio Cloud and then merging your changes into your group project repository so we want to practice these steps here.
+
+In the course repository there is a document called `GitHub_names.Rmd`. I would like you to add your first name and username to this document by:
+
+1. Making the edits on to the document in RStudio Cloud
+
+2. Pushing your  changes to your GitHub repository
+
+3. Submitting a pull request to my repository asking me to accept your edits.
+
+### Making the edits in RStudio Cloud
+
+Open the `GitHub_names.Rmd` file in the folder you cloned to your workspace. Add your First name and GitHub user name to the list and knit the document. 
+
+### Pushing your changes to your GitHub repository
+
+We now want to have these edits reflected in your GitHub repository. 
+
+  1.  At this point you want to check if GitHub knows who you are. Open the terminal tab in the SW panel of your RStudio Cloud project.  Type 
+
+      `/cloud/project$ git config --list`
 
       and it will spit out a bunch on information. Look and see if your GitHub username and the email you used to sign on to GitHub with are listed. If they are all is well. If they are not listed type 
 
-       `$ git config --global user.name "janedoe"`
+       `/cloud/project$ git config --global user.name "janedoe"`
 
-       `$ git config --global user.email janedoe@pitt.edu`
+       `/cloud/project$ git config --global user.email janedoe@pitt.edu`
 
         Make sure you set these to your github user name and the email you used to sign up with GitHub.
 
-******************
 
   3. Check the status of your edits. Type 
 

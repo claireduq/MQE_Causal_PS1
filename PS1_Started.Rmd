@@ -24,7 +24,7 @@ In additions, to the instructions given on the problem set, you may find the "Gi
 # Preliminary: Set up your GitHub, RStudio Cloud and Git. 
 
 
-Git and GitHub are often used in conjunction but are really two distinct things. Git is basically a version control software that is based on your local computer. GitHub is a webservice where you have an account that allows you to do version control via the website, which becomes particularly interesting when you are working on collaborative projects and want to avoid the issue of how to synchronize and manage changes to a document when multiple people are working on the same document simultaneously. In theory you could use only one or the other but many people use them in conjunction. 
+Git and GitHub are often used in conjunction but are really two distinct things. Git is basically a version control software that is based on your local computer. GitHub is a web service where you have an account that allows you to do version control via the website, which becomes particularly interesting when you are working on collaborative projects and want to avoid the issue of how to synchronize and manage changes to a document when multiple people are working on the same document simultaneously. In theory you could use only one or the other but many people use them in conjunction. 
 
 Since in this class we are primarily working on RStudio Cloud (rather than on your local machine), I will walk you through the RStudio Cloud to GitHub integration. I will also provide information on using Git so you know how to sync files between github and your local machine as well, if you choose to do so. Conceptually the relationship between Github and RStudio Cloud is very much the same as how you would use GitHub with a local folder on your computer, though the exact steps involved in setup are a bit different.
 
@@ -67,7 +67,7 @@ The following list of tasks are designed to get you started with GitHub and RStu
 
 All of the lecture materials for this course are available in a repository on GitHub. Navigate to https://github.com/claireduq/MQE_Causal to view the course repository. This is where you will find the most up-to-date content for the course. 
 
-So that you have full access to this content you will. Step by step instrections are detailed below to help you do the following:
+Step by step instructions are detailed below to help you do the following:
 
 1. Fork the course repository to your GitHub account
 
@@ -100,29 +100,29 @@ If you would like to rename the repo:
 
 So you can make modifications to the course code, experiment with the simulations we will be running, try different specification etc. you need to create your own copy of the course materials in your RStudio Cloud account. To do this:
 
-  1. Click on the New project button and select New projet from Github in the dropdown options. 
+  1. Click on the New project button and select New project from Github in the drop down options. 
   2. Copy the URL of the MQE_Causal repository in the space provided
   
 RStudio Cloud should now open a new project populated with the course files
   
 ### Upload the course data to your RStudio Cloud account
 
-The GitHub platform is designed to keep track of changes to code/projects. It is not designed to host large amounts of data. If you try and upload a large datafile to github it will throw an error. Thus the datafiles that are used in the course materials are not hosted on github and will need to be uploaded to your project folder 
+The GitHub platform is designed to keep track of changes to code/projects. It is not designed to host large amounts of data. If you try and upload a large data file to github it will throw an error. Thus the data files that are used in the course materials are not hosted on github and will need to be uploaded to your project folder 
 separately. 
 
  1. Go to the course Canvas page.
  
- 2. Copy the files called `cps_clean.csv` and `IA_MI_merge040504.dta` to your local machine. 
+ 2. Copy the files called `cps_clean.csv` and `IA_MI_merge040504.dta` and the mod7data folder to your local machine. 
  
  3. In RStudio Cloud click on the `upload` button in the file tab of the SE panel of the work space. 
  
- 4. Upload the two data files directly to your RStudio Cloud project (don't put them in a folder). 
+ 4. Upload the two data files and the folder directly to your RStudio Cloud project (don't put them in a separate folder). 
  
 ### Run an Rmarkdown file
 
-Course notes and slides are written in Rmarkdown (.Rmd). Your homewokr assignments will also be produced using Rmarkdown. Rmarkdown is a type of R file that allows the combination of R code, code output and text. For the moment, we just want to check that you have the setup needed to run the course files. 
+Course notes and slides are written in Rmarkdown (.Rmd). Your homework assignments will also be produced using Rmarkdown. Rmarkdown is a type of R file that allows the combination of R code, code output and text. For the moment, we just want to check that you have the setup needed to run the course files. 
  
- 5. Some of the datasets used in lecture are large and will require a fair bit of computing power if you want them to run in a reasonable amount of time. To increase your RAM on RStudio Cloud:
+ 5. Some of the data sets used in lecture are large and will require a fair bit of computing power if you want them to run in a reasonable amount of time. To increase your RAM on RStudio Cloud:
  
       a. click on the settings button at the top of your browser window
       b. select resources
@@ -131,7 +131,7 @@ Course notes and slides are written in Rmarkdown (.Rmd). Your homewokr assignmen
       
 6. Make sure your browser allows pop-up windows from rstudio.cloud
       
-7. Open any of the .Rmd files and click the `Knit` button in the NW panel of your workspace. Make sure to install any packages when prompted. A pop-up window should appear with the compiled lecture notes or slides. (Note: if the .Rmd file uses the large data in IA_MI_merge040504.dta it will take a few minutes to compile. )
+7. Open any of the .Rmd files and click the `Knit` button in the NW panel of your work space. Make sure to install any packages when prompted. A pop-up window should appear with the compiled lecture notes or slides. (Note: if the .Rmd file uses the large data in IA_MI_merge040504.dta it will take a few minutes to compile. )
 
 ### Set up syncronizing with claireduq/MQE_Causal
 
@@ -236,7 +236,7 @@ In the course repository there is a document called `GitHub_names.Rmd`. I would 
 
 ### Making the edits in RStudio Cloud
 
-Open the `GitHub_names.Rmd` file in the folder you cloned to your workspace. Add your First name and GitHub user name to the list and knit the document. 
+Open the `GitHub_names.Rmd` file in the folder you cloned to your work space. Add your First name and GitHub user name to the list and knit the document. 
 
 ### Pushing your changes to your GitHub repository
 
@@ -255,40 +255,47 @@ We now want to have these edits reflected in your GitHub repository.
         Make sure you set these to your github user name and the email you used to sign up with GitHub.
 
 
-  3. Check the status of your edits. Type 
+  2. Check the status of your edits. Type 
 
-      `$git status`
+      `/cloud/project$ git status`
 
      You should see:
     
        - if you have modified files with edits that have not yet been commited.
        
        - if you have any new files that do not exist in the GitHub repo
+       
+    3. If you generated a .pdf document when you knit the .Rmd file, delete it. This means you only have to merge the changes in the .Rmd file and not other output files as well.    
     
-  4. If you have new files type
+  3. If you have new files type
   
-      `$ git add .`
+      `/cloud/project$ git add .`
   
       to add all new files to GitHub
 
-  5. To prepare your modifications to be committed, type
+  4. To prepare your modifications to be committed, type
 
-      `$ git commit -a -m "Jane Doe's changes"`
+      `/cloud/project$ git commit -a -m "Jane Doe's changes"`
 
        where the -a argument tells git to commit all the modifications and -m adds a message to you commit (a good practice when working on jointly edited files). Now if you type  
 
-      `$ git status`
+      `/cloud/project$ git status`
 
        you will see that the files you changed are ready to be pushed to github so that they are reflected there. 
 
-  6. Now you can type 
+  5. Now you can type 
 
-      `$ git push origin master` or just `$git push`
+      `/cloud/project$ git push origin master` or just `/cloud/project$ git push`
 
        which basically tells git to push your changes from your remote "origin" computer to the "master" branch on github. 
 
-  7. You can now look at your repository on github and check that the edits you made appear in your files and the files history. 
-  
+  6. You can now look at your repository on github and check that the edits you made appear in your files and the files history. 
+
+Note: There are also ways to do this the point and click way in the Git tab in the NE panel.
+
+**BUT WHAT ABOUT THE DATA FILES!?!** If you loaded the data sets to your work space then how come the data files didn't also get copied onto you GitHub page? If you click on the .gitignore file, you will see that I specified two file types (.dta and .csv) and a folder (mod7data/) that are never to be included in the synchronizing process. If we work with other large files I will add these as well. Without this, you would have been faced with an error. 
+
+
 ### Submitting a pull request to my repository asking me to accept your edits.
 
 Now that your edits appear in your GitHub repository, you need to propose those changes to the owner of the original repo (me). You will do this via a pull request. Note: This will generate a pull request for ALL of the commits (changes) you made to any file in your forked repo since you originally forked it. 
@@ -311,8 +318,8 @@ Now that your edits appear in your GitHub repository, you need to propose those 
             You have now sent me a pull request. I will need to review your edits, probably have to make some changes since there is a merge conflict, and decide if I want to integrate them into my file.
 
 
-**Congratulatons! You have now practiced most of the key actions needed to work collaboratively with GitHub and Git. The way group projects are run on this platform is illustrated in the image below. Your group will have a central repository in which you are all collaborators. Each group member (other then the one hosting the central repository) will have their own fork (copy) of the repository on their own GitHub account. This copy will be cloned to your local machine (using Git) and then set up so that it syncs with the upstream central repo. 
-When you want to work on your group assignment you will open the Git command window and sync your local folder with the central repo so that any changes your groupmates made are reflected on your local machine. You can then do your coding and work on your local machine, and once you know that your code runs, you will push your changes to your fork, and then submit a pull request and merge you change to the central repo. For more detailed step by step instructions, and instructions on some other actions you may need to use, check out the GitHub_instructions document in the course folder.**
+**Congratulations! You have now practiced most of the key actions needed to work collaboratively with GitHub. The way group projects are run on this platform is illustrated in the image below. Your group will have a central repository in which you are all collaborators. Each group member (other then the one hosting the central repository) will have their own fork (copy) of the repository on their own GitHub account. This copy will be cloned to your RStudio Cloud work space and then set up so that it syncs with the upstream central repo. 
+When you want to work on your group assignment you will sync your RStudio Cloud folder with the central repo so that any changes your group mates made are reflected on your local machine. You can then do your coding and work on your local machine, and once you know that your code runs, you will push your changes to your fork, and then submit a pull request and merge you change to the central repo. For more detailed step by step instructions, and instructions on some other actions you may need to use, check out the GitHub_instructions document in the course folder.**
 
 
 ![](images\git-fork-clone-flow.png){width=50%}
@@ -322,31 +329,18 @@ When you want to work on your group assignment you will open the Git command win
 
 ## Setup
 
-On GitHub, have one group member generate a private project repository for your group named `PS1_name1_name2_name3` where the usernames are the first names of your groupmembers. You will download the problem set .Rmd file from canvas and upload it to your groups repository. You will then add collaboradors to your repository who will create their own forks of the repository. 
+On GitHub, have one group member generate a private fork of the problem set's project repository for your group named `PS1_name1_name2_name3` where the usernames are the first names of your group members.  You will then add collaborators to your repository who will create their own forks of the repository. 
 
 ### Group "leader": To set up a private repo: 
 
   1. Log onto you GitHub account
   2. Click on the **Repositories** tab
-  3. Click on the green **New** button which will create a new repository from scratch
-  4. Name your repository "PS1_name1_name2_name3"
-  5. Select "Private"
-  6. Select "Add a README" file
-  7. Click the green **Create repository** button
-
-Congratulations! You have create your repository! A couple things to note: Private repos will not show up on your main home site. To navigate to them you need to go to the Repository tab.
+  3. Make sure you accepted my email invitation to the private problem set repo
+  4. For the problem set repo and name you repository "PS1_name1_name2_name3"
 
 
-### Group "leader": Adding the Problem set file.
+Congratulations! You have created your repository! A couple things to note: Private repos will not show up on your main home site. To navigate to them you need to go to the Repository tab.
 
-  1. Download the Problem Set .Rmd file from Canvas
-  2. Navigate into the private PS1_name1_name2_name3 repo
-  3. Click the **Add** file button and select Upload file in the drop down menu
-  4. Drop the .Rmd file you downloaded into the upload space
-  5. Write a commit message like "adding problem set Rmd file"
-  6. Click the green **Commit changes** button
-
-You should now see the .Rmd file appear in the repository and if you select the file you can see the .Rmd code you will be working with. 
 
 ### Group "leader": Adding collaborators
 
@@ -364,22 +358,15 @@ You should now see the .Rmd file appear in the repository and if you select the 
   3. Once in the repo, click the green **Accept invitation**
   4. You can now view the private repo your leader set up. 
 
-### Group team members: Fork the private repo
+### Group team members: Fork the private repo and load data
 
-If you want to be able to use Git in order to clone the repo to your computer's files you will need to generate a fork of the repo (see instructions above).
-
-
-
-### Group workflow on GitHub: 
-
-
-Now that you all have repos with the problem set, you will want to:
-
-  1. Use Git to clone your repos to your local machines (see instructions above). 
-  2. Work on your contribution to the code and answers on your local machine
+  1. generate a fork of the repo (see instructions above).
+  2. Clone the repo to your RStudio Cloud (see instructions above).
+  3. Download the problem set data from canvas and load it into your cloud work space. Note: for your code to work when your teammates run it, make sure you save the data in the same location in your work spaces. 
+  4. Work on your contribution to the code and answers in your work space
   3. Make sure your edits run by knitting the .Rmd file 
-  4. Remove all files other than the .Rmd file from your local repo folder 
-  5. Use git to push your changes to your GitHub repo (see instructions above).
+  6. Once you know the .Rmd file runs, delete the generated .pdf (or other) file(s). This makes it easier to merge changes since you only have to do it in the .Rmd file and not the others as well.
+  5. Push your changes to your GitHub repo (see instructions above).
 
   **If you are a team member:** 
   
@@ -412,7 +399,7 @@ Now that you all have repos with the problem set, you will want to:
 
 **Note: If you are the group leader, things could be changing in your repo without you realizing it!** Keep an eye on your repo history so you know what happened while you were away. You may also want to be cautious when pulling repo changes to your local machine since there may be changes you didn't know about. (Maybe keep a back up of your own work on your local computer for your records?)
 
-  7. Next time you want to work on the assignment, make sure you syncronize your forked repo with the group leaders repo so that you are working on the most up to date version of your group's code (see instructions above).  `$git pull` any updates to your local machine and repeat steps 2-6. 
+  7. Next time you want to work on the assignment, make sure you synchronize your forked repo with the group leaders repo so that you are working on the most up to date version of your group's code (see instructions above).  `$git pull` any updates to your work space. 
   
   8. Once the main group .Rmd file is finalized, you can compile it to html, pdf or word for submission.  
 
@@ -429,7 +416,7 @@ When you are working on your local machine, do make sure to knit the .Rmd file f
 
 For this problem we are going to generate simulated data, with known characteristics, so that we can explore how the omission of a key variable biases our estimates.
 
-To do this in R markdown we must first tell R to interpret the text we write as code. We do this by embedding a code *chunk* in the document. The following is a code *chunk* that only consists of a comment. If you are reading this in the .Rmd file, notice the chunk starts and ends with three ` marks. The first marks are followed by {r NAME} where NAME is the name of the code chunk (all chunks must have different names). This tells R markdown that the text inside the chunk should be interpreted as R code (not written text). Notice there are also some icons at the top right of the chunk. The first allows you to set the chunk settings (which you can also do by writing in the settings in the {} at the begining of the chunk). The chunk settings will tell R markdown whether you want the output, the warnings, the code... of the chunk to be visible in the final document.  The second icon tells R to run all the code above the current chunk and the last to run the code in the current chunk.
+To do this in R markdown we must first tell R to interpret the text we write as code. We do this by embedding a code *chunk* in the document. The following is a code *chunk* that only consists of a comment. If you are reading this in the .Rmd file, notice the chunk starts and ends with three ` marks. The first marks are followed by {r NAME} where NAME is the name of the code chunk (all chunks must have different names). This tells R markdown that the text inside the chunk should be interpreted as R code (not written text). Notice there are also some icons at the top right of the chunk. The first allows you to set the chunk settings (which you can also do by writing in the settings in the {} at the beginning of the chunk). The chunk settings will tell R markdown whether you want the output, the warnings, the code... of the chunk to be visible in the final document.  The second icon tells R to run all the code above the current chunk and the last to run the code in the current chunk.
 
 
 ```{r example}
@@ -437,7 +424,7 @@ To do this in R markdown we must first tell R to interpret the text we write as 
 
 ```
 
-In the following chunk I generate simulated data consisting of two correlated variables. Notice the chunk setting is set to supress the warning messages that are generated when R loads a package. 
+In the following chunk I generate simulated data consisting of two correlated variables. Notice the chunk setting is set to suppress the warning messages that are generated when R loads a package. 
 
 ```{r sim1,  warning=FALSE}
 library(MASS)
@@ -498,6 +485,18 @@ out$Y<-out$V1*B1+out$V2*B2+out$error
 #plotted
 
 ```
+**Answer:**
+
+
+
+## Question: 
+**Load the `cps_clean.csv' dataset (available on Canvas). Regress income on education and interpret the coefficient.  **
+
+**Answer:**
+
+
+## Question: 
+**Add additional control variables to the regression you estimated above. How does this change your interpretation of the coefficient on education?**
 **Answer:**
 
 # Submission instructions:

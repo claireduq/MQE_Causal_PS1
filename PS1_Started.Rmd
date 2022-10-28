@@ -532,6 +532,17 @@ summary(new)
 B1=8114.7
 This means that for every 1 year increase in education, the regression predicts and increase in income of $8114.7
 
+**Add additional control variables to the regression estimated above. How does this change your interpretation of the coefficient on education.**
+
+```{r}
+model3<-lm(inctot~edu+age+female+health, cps_clean)
+summary(model3)
+```
+
+
+**Answer**
+  We added the control variables age, female, and health. With these control variables the new Beta1 for education is 7754.69. This is smaller than our original estimate, suggesting that the control variables were adding a sum upward bias in the original regression.
+
 
 1) Make sure the final version of your assignment is uploaded on GitHub in both html and Rmarkdown format. 
 

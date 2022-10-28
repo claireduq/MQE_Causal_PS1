@@ -7,16 +7,19 @@ output:
   html_document:
     number_sections: true
 ---
+```{r}
+install.packages("dplyr")
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 **Group Member 1: Your name here**
-
+Tory
 **Group Member 2: Your name here**
-
+Shreiya
 **Group Member 3: Your name here**
-
+Tesfa
 
 
 In additions, to the instructions given on the problem set, you may find the "GitHub instructions" course document helpful.
@@ -450,6 +453,7 @@ B1<-3
 B2<-6
 
 out$Y<-out$V1*B1+out$V2*B2+out$error
+View(out)
 ```
 
 **TO DO: For the questions below write the needed code and a written response to the question. **
@@ -457,49 +461,77 @@ out$Y<-out$V1*B1+out$V2*B2+out$error
 ## Question:
 **Write a chunk in which you regress $Y$ on $V_1$ and $V_2$. Are your estimates of $\beta_1$ and $\beta_2$ biased?**
 
-**Answer:**
+```{r}
+model<-lm(Y~V1+V2, out)
+summary(model)
+```
 
+
+**Answer:**
+Our results are not biased because we have accounted for all variables that affect Y. 
 
 ## Question: 
 **Write a chunk in which you regress $Y$ on $V_1$ only. Is your estimate of $\beta_1$ biased?**
 
-**Answer:**
+```{r}
+model2<-lm(Y~V1, out)
+summary(model2)
+```
 
+
+**Answer:**
+Our estimate of beta1 is biased because we failed to account for the second variable. This means that beta1 is capturing some of the effect from v2.
 
 ## Question: 
 **Generate a new variable $Y_{adj}$ such that $Y_{adj}=Y-\beta_2*V_2$. Then regress $Y_{adj}$ on $V_1$. Is your estimate of $\beta_1$ biased? Can you explain why/why not?**
 
-**Answer:**
+```{r}
+out$Y_adj<-out$Y-6*out$V2
+model3<-lm(Y_adj~V1, out)
+summary(model3)
+```
 
+
+
+**Answer:**
+Our estimate of beta1 is not biased because we accounted for V2 before we ran the regression, which means Beta1 for Y_adjusted is only capturing the effect of V1.
 
 ## Question: 
-**The code below generates a scatter plot and regression line for the relationship between $V_1$ and $Y$ as well as $V_1$ and $Y_{adj}$. Submit an improved visualization of this data. Hint: you will need to delete the # to get the code to run **
+**The code below generates a scatter plot and regression line for the relationship between $V_1$ and $Y$ as well as $V_1$ and $Y_{adj}$. Submit an improved visualization of this data.
+
+```{r}
+samp<-sample_n(out, 200)
+samp
+```
+
 
 ```{r key 4}
-#plotted<-ggplot(out, aes(V1, y = value, color = variable)) + 
-#    geom_point(aes(y = Y, col = "Y")) + 
-#    geom_point(aes(y = adjY, col = "adjY"))+
-#    geom_smooth(method='lm', aes(y = Y, col = "Y"))+
-#    geom_smooth(method='lm', aes(y = adjY, col = "Y"))
+plotted<-ggplot(samp, aes(V1, y = value, color = variable)) + 
+    geom_point(aes(y = Y, col = "Y"),  alpha=.5) + 
+    geom_point(aes(y = Y_adj, col = "Y_adj"), alpha=.5)+
+    geom_smooth(method='lm', aes(y = Y, col = "Y"))+
+    geom_smooth(method='lm', aes(y = Y_adj, col = "Y_adj")) + theme_bw() + labs(x="Variable 1", y="Value", title = "Generated Regression Model with Y and Y-adjusted")
 
-#plotted
+plotted
 
 ```
 **Answer:**
-
+To clean up the graph, we took a sample of 200 from the data set and plotted that sample with the regression lines. This kept the points from cluttering up the graph. We made the points more transparent so that the trend lines would stand out. We also added a title, as well as labels for the X and Y axes.
 
 
 ## Question: 
 **Load the `cps_clean.csv' dataset (available on Canvas). Regress income on education and interpret the coefficient.  **
 
+```{r}
+new<-lm(inctot~edu, cps_clean)
+summary(new)
+```
+
+
 **Answer:**
+B1=8114.7
+This means that for every 1 year increase in education, the regression predicts and increase in income of $8114.7
 
-
-## Question: 
-**Add additional control variables to the regression you estimated above. How does this change your interpretation of the coefficient on education?**
-**Answer:**
-
-# Submission instructions:
 
 1) Make sure the final version of your assignment is uploaded on GitHub in both html and Rmarkdown format. 
 

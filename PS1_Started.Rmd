@@ -11,6 +11,11 @@ output:
 install.packages("dplyr")
 ```
 
+```{r}
+library(dplyr)
+```
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -453,7 +458,7 @@ B1<-3
 B2<-6
 
 out$Y<-out$V1*B1+out$V2*B2+out$error
-View(out)
+
 ```
 
 **TO DO: For the questions below write the needed code and a written response to the question. **
@@ -501,7 +506,6 @@ Our estimate of beta1 is not biased because we accounted for V2 before we ran th
 
 ```{r}
 samp<-sample_n(out, 200)
-samp
 ```
 
 
@@ -521,9 +525,14 @@ To clean up the graph, we took a sample of 200 from the data set and plotted tha
 
 ## Question: 
 **Load the `cps_clean.csv' dataset (available on Canvas). Regress income on education and interpret the coefficient.  **
+```{r}
+cps <- read.csv('cps_clean.csv')
+
+```
+
 
 ```{r}
-new<-lm(inctot~edu, cps_clean)
+new<-lm(inctot~edu, cps)
 summary(new)
 ```
 
@@ -535,13 +544,16 @@ This means that for every 1 year increase in education, the regression predicts 
 **Add additional control variables to the regression estimated above. How does this change your interpretation of the coefficient on education.**
 
 ```{r}
-model3<-lm(inctot~edu+age+female+health, cps_clean)
+model3<-lm(inctot~edu+age+female+health, cps)
 summary(model3)
 ```
 
 
 **Answer**
   We added the control variables age, female, and health. With these control variables the new Beta1 for education is 7754.69. This is smaller than our original estimate, suggesting that the control variables were adding a sum upward bias in the original regression.
+
+
+
 
 
 1) Make sure the final version of your assignment is uploaded on GitHub in both html and Rmarkdown format. 

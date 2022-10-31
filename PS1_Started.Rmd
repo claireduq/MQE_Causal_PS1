@@ -1,9 +1,9 @@
 ---
-title: 'Problem Set 1:Getting Started Key'
-author: "Claire Duquennois"
-output:
-  pdf_document:
-    number_sections: true
+title: 'Problem Set 1:Tory, Shreiya, Tesfa'
+author: ""
+output: 
+ # pdf_document:
+    #number_sections: true
   html_document:
     number_sections: true
 ---

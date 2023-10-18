@@ -4,8 +4,6 @@ author: "Claire Duquennois"
 output:
   pdf_document:
     number_sections: true
-  html_document:
-    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -265,11 +263,10 @@ Now that your edits appear in your GitHub repository, you need to propose those 
             You have now sent me a pull request. I will need to review your edits, probably have to make some changes since there is a merge conflict, and decide if I want to integrate them into my file.
 
 
-**Congratulatons! You have now practiced most of the key actions needed to work collaboratively with GitHub and Git. The way group projects are run on this platform is illustrated in the image below. Your group will have a central repository in which you are all collaborators. Each group member (other then the one hosting the central repository) will have their own fork (copy) of the repository on their own GitHub account. This copy will be cloned to your local machine (using Git) and then set up so that it syncs with the upstream central repo. 
+**Congratulatons! You have now practiced most of the key actions needed to work collaboratively with GitHub and Git. The way group projects are run on this platform is as follows: Your group will have a central repository in which you are all collaborators. Each group member (other then the one hosting the central repository) will have their own fork (copy) of the repository on their own GitHub account. This copy will be cloned to your local machine (using Git) and then set up so that it syncs with the upstream central repo. 
 When you want to work on your group assignment you will open the Git command window and sync your local folder with the central repo so that any changes your groupmates made are reflected on your local machine. You can then do your coding and work on your local machine, and once you know that your code runs, you will push your changes to your fork, and then submit a pull request and merge you change to the central repo. For more detailed step by step instructions, and instructions on some other actions you may need to use, check out the GitHub_instructions document in the course folder.**
 
 
-![](images\git-fork-clone-flow.png){width=50%}
 
 
 # Group Homework Project 
@@ -419,56 +416,82 @@ B2<-6
 out$Y<-out$V1*B1+out$V2*B2+out$error
 ```
 
+
+\clearpage
+
 **TO DO: For the questions below write the needed code and a written response to the question. **
 
-## Question:
-**Write a chunk in which you regress $Y$ on $V_1$ and $V_2$. Are your estimates of $\beta_1$ and $\beta_2$ biased?**
+**Question: Write a chunk in which you regress $Y$ on $V_1$ and $V_2$. Are your estimates of $\beta_1$ and $\beta_2$ biased?**
+
+**Code:**
 
 **Answer:**
 
 
-## Question: 
-**Write a chunk in which you regress $Y$ on $V_1$ only. Is your estimate of $\beta_1$ biased?**
+\clearpage
+
+**Question: Write a chunk in which you regress $Y$ on $V_1$ only. Is your estimates of $\beta_1$ biased?**
+
+**Code:**
 
 **Answer:**
 
+\clearpage
 
-## Question: 
-**Generate a new variable $Y_{adj}$ such that $Y_{adj}=Y-\beta_2*V_2$. Then regress $Y_{adj}$ on $V_1$. Is your estimate of $\beta_1$ biased? Can you explain why/why not?**
+**Question: Generate a new variable $Y_{adj}$ such that $Y_{adj}=Y-\beta_2*V_2$. Then regress $Y_{adj}$ on $V_1$. Is your estimate of $\beta_1$ biased? Can you explain why/why not?**
+
+**Code:**
 
 **Answer:**
 
+\clearpage
 
-## Question: 
-**The code below generates a scatter plot and regression line for the relationship between $V_1$ and $Y$ as well as $V_1$ and $Y_{adj}$. Submit an improved visualization of this data. Hint: you will need to delete the # to get the code to run **
+**Question: The code below generates a scatter plot and regression line for the relationship between $V_1$ and $Y$ as well as $V_1$ and $Y_{adj}$. Submit an improved visualization of this data.  **
+
+**Code:**
 
 ```{r key 4}
 #plotted<-ggplot(out, aes(V1, y = value, color = variable)) + 
 #    geom_point(aes(y = Y, col = "Y")) + 
 #    geom_point(aes(y = adjY, col = "adjY"))+
 #    geom_smooth(method='lm', aes(y = Y, col = "Y"))+
-#    geom_smooth(method='lm', aes(y = adjY, col = "Y"))
+#    geom_smooth(method='lm', aes(y = adjY, col = "adjY"))
 
 #plotted
 
+
 ```
+
+
+\clearpage
+
+**Question: Load the ‘cps_clean.csv’ dataset (available on Canvas). Regress income on education and interpret the coefficient. **
+
+**Code:**
+
 **Answer:**
 
 
 
-## Question: 
-**Load the `cps_clean.csv' dataset (available on Canvas). Regress income on education and interpret the coefficient.  **
+\clearpage
+
+**Question: Add additional control variables to the regression you estimated above. How does this change your interpretation of the coefficient on education? **
+
+
+**Code:**
 
 **Answer:**
 
 
-## Question: 
-**Add additional control variables to the regression you estimated above. How does this change your interpretation of the coefficient on education?**
-**Answer:**
+
 
 # Submission instructions:
 
-1) Make sure the final version of your assignment is uploaded on GitHub in both html and Rmarkdown format. 
+- Make sure the final version of your assignment is uploaded to your group's GitHub repo in Rmarkdown format. 
+
+- Since this is a group assignment only one member of the group will upload it to gradescope. 
+
+- Make sure the final version of your assignment is knit in pdf format and uploaded to gradescope. Make sure you have one question response per page (unless otherwise indicated) so that question positions align with the template in gradescope.The final PDF should be 16 pages long. 
 
 
 
